@@ -1,0 +1,41 @@
+# Dependencies and package manager files
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store
+
+# Next.js build output and cache artifacts
+.next
+out
+
+# Environment variables and secrets (Never bake these into your image layers)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.direnv
+
+# Version control system assets
+.git
+.gitignore
+.gitattributes
+
+# IDE, Editor configs, and OS metadata
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# etc
+.hermes/
+AGENTS.md
+DESIGN.md
+IDEA.md
