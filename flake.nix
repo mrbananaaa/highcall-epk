@@ -20,6 +20,7 @@
         prettierd
         tailwindcss-language-server
         vscode-langservers-extracted
+        typescript
 
         # utils
         jq
