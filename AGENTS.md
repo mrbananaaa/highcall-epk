@@ -15,7 +15,7 @@ Frontend-focused development of an Electronic Press Kit (EPK).
 5. [ ] Final polish & responsive check
 
 ## Current Status: Sprint 1 (Setup)
-- [x] Dockerfile & docker-compose.yaml created.
+- [x] Dockerfile & docker-compose.yaml created (Exposed on 3000)
 - [ ] Initialize Next.js project structure within repo if needed.
 - [ ] Install dependencies (Tailwind, Motion).
 
