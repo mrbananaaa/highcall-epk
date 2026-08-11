@@ -1,0 +1,40 @@
+# Dependencies (managed by pnpm)
+node_modules
+.pnpm-store
+
+# Next.js build output
+.next
+out
+
+# Generated files
+next-env.d.ts
+
+# Lockfiles (machine-generated)
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Local environment and secrets
+.env
+.env.*.local
+
+# Debug logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor and IDE configs
+.vscode
+.idea
+
+# Agent planning artifacts
+.hermes
+
+# Project docs (keep as authored)
+AGENTS.md
+DESIGN.md
+*.md
+
+# OS metadata
+.DS_Store
+Thumbs.db
