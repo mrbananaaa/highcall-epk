@@ -9,7 +9,7 @@ FROM base AS development
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml* ./
+COPY package.json pnpm-workspace.yaml* pnpm-lock.yaml* ./
 
 # Mount pnpm store to speed up install times inside the container
 RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
