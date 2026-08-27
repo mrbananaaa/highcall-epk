@@ -1,6 +1,7 @@
-import Header from "./components/Header";
 import Image from "next/image";
 import LogoPNG from "../../public/logo-highcall.png";
+import Header from "@/components/Header";
+import HeroLogo from "@/components/hero-logo";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center p-24">
         {/* HERO */}
         <section className="mt-20">
+          <HeroLogo />
           <div className="flex flex-col items-center space-y-8">
             <Image
               alt="highcall"
