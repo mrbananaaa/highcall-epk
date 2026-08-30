@@ -72,4 +72,51 @@
   --color-background: var(--color-background);
   --color-on-background: var(--color-on-background);
   --color-surface-variant: var(--color-surface-variant);
+
+  /* Custom Background */
+  --background-image-grid:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+
+  --background-size-grid-sm: 30px 30px;
+  --background-size-grid-md: 40px 40px;
+  --background-size-grid-lg: 60px 60px;
+}
+
+body {
+  scroll-behavior: smooth !important;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Hero text logo base */
+.hero-logo-text {
+  @apply font-display text-[80px] sm:text-[85px] md:text-[180px] leading-0 font-bold tracking-tighter 2xl:text-[290px];
+}
+
+/* Marque Row Text */
+.marque-solid-text {
+  @apply font-display font-black text-5xl tracking-tighter text-white;
+}
+
+.marque-stroke-text {
+  @apply font-display font-black text-5xl tracking-tighter text-transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color-primary);
 }

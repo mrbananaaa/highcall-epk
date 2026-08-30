@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Anybody, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
+import BaseLayout from "@/components/layouts/base-layout";
+import AppProvider from "./provider";
 
 const anybody = Anybody({
   subsets: ["latin"],
@@ -23,9 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${anybody.variable} ${hankenGrotesk.variable}`}>
-      <body className="bg-background antialiased" suppressHydrationWarning>
-        {children}
+    <html
+      lang="en"
+      className={`${anybody.variable} ${hankenGrotesk.variable} scrollbar-thumb-primary`}
+      data-scroll-behavior="smooth"
+    >
+      <body
+        className="overflow-x-hidden bg-background antialiased"
+        suppressHydrationWarning
+      >
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );
