@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className="nav fixed top-0 left-0 z-50 w-full backdrop-blur-lg select-none">
-      <div className="mx-auto flex h-20 items-center justify-between px-4 md:px-6 lg:px-8">
+      <div className="mx-auto flex h-20 items-center justify-center px-4 md:justify-between md:px-6 lg:px-8">
         <Link onClick={() => scrollTo("#")} scroll={false} href="#">
           <div className="w-28">
             <Image
@@ -33,7 +33,7 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="text-md flex cursor-default gap-1.5 font-sans font-bold tracking-tight text-secondary">
+        <nav className="text-md hidden cursor-default gap-1.5 font-sans font-bold tracking-tight text-secondary md:flex">
           {NAV_LIST.map(([title, to], i) => {
             return (
               <React.Fragment key={title}>
