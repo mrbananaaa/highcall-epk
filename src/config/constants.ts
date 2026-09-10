@@ -11,11 +11,10 @@ export const CONTACT_LIST = {
 export const IMGS = {
   kopiMantu: [
     "at-kopi-mantu-1.jpeg",
-    "at-kopi-mantu-1.jpeg",
-    "at-kopi-mantu-1.jpeg",
-    "at-kopi-mantu-1.jpeg",
-    "at-kopi-mantu-1.jpeg",
-    "at-kopi-mantu-1.jpeg",
+    "at-kopi-mantu-2.jpeg",
+    "at-kopi-mantu-3.jpeg",
+    "at-kopi-mantu-4.jpeg",
+    "at-kopi-mantu-5.jpeg",
   ],
   dopamine: [],
 } as const;
