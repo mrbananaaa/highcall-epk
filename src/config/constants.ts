@@ -16,9 +16,27 @@ export const IMGS = {
     "at-kopi-mantu-4.jpeg",
     "at-kopi-mantu-5.jpeg",
   ],
-  dopamine: [],
-  libre: [],
-  burningBar: [],
+  libre: [
+    "at-libre-1.jpeg",
+    "at-libre-2.jpeg",
+    "at-libre-3.jpeg",
+    "at-libre-4.jpeg",
+    "at-libre-5.jpeg",
+  ],
+  burningBar: [
+    "at-burning-bar-1.jpeg",
+    "at-burning-bar-2.jpeg",
+    "at-burning-bar-3.jpeg",
+    "at-burning-bar-4.jpeg",
+    "at-burning-bar-5.jpeg",
+  ],
+  dopamine: [
+    "at-dopamine-1.jpeg",
+    "at-dopamine-1.jpeg",
+    "at-dopamine-1.jpeg",
+    "at-dopamine-1.jpeg",
+    "at-dopamine-1.jpeg",
+  ],
 } as const;
 
 export const getImages = (place: keyof typeof IMGS, idx: number) => {

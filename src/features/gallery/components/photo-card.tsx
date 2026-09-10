@@ -19,6 +19,7 @@ const PhotoCard = ({ imageURL, ref, ...props }: PhotoCardProps) => {
         sizes="200px"
         quality={100}
         className="object-cover"
+        loading="lazy"
       />
     </div>
   );

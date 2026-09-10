@@ -28,7 +28,8 @@ export function SectionTitle({
       tl.from(".reveal-stagger", {
         opacity: 0,
         duration: 1,
-        stagger: 0.4,
+        stagger: 0.2,
+        ease: "power2.in",
       }).from(".reveal-line", {
         width: 0,
         duration: 0.5,
