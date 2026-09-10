@@ -17,6 +17,7 @@ const PhotoCard = ({ imageURL, ref, ...props }: PhotoCardProps) => {
         alt={`${imageURL}`}
         fill
         sizes="200px"
+        quality={100}
         className="object-cover"
       />
     </div>
