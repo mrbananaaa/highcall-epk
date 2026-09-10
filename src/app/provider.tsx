@@ -1,7 +1,22 @@
 "use client";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import {
+  ScrollTrigger,
+  ScrollSmoother,
+  ScrollToPlugin,
+  SplitText,
+} from "gsap/all";
 import BaseLayout from "@/components/layouts/base-layout";
-import LenisProvider from "@/components/layouts/lenis-provider";
+
+gsap.registerPlugin(
+  useGSAP,
+  ScrollTrigger,
+  ScrollSmoother,
+  ScrollToPlugin,
+  SplitText,
+);
 
 interface AppProviderProps {
   children: React.ReactNode;
@@ -10,9 +25,7 @@ interface AppProviderProps {
 export default function AppProvider({ children }: AppProviderProps) {
   return (
     <>
-      <LenisProvider>
-        <BaseLayout>{children}</BaseLayout>
-      </LenisProvider>
+      <BaseLayout>{children}</BaseLayout>
     </>
   );
 }

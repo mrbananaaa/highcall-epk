@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, memo } from "react";
 
 interface MarqueRowProps {
   children: React.ReactNode;
@@ -9,11 +9,7 @@ interface MarqueRowProps {
   reverse?: boolean;
 }
 
-export function MarqueRow({
-  children,
-  speed = 1,
-  reverse = false,
-}: MarqueRowProps) {
+function marqueRow({ children, speed = 1, reverse = false }: MarqueRowProps) {
   const rowRef = useRef(null);
 
   const repeat = 3;
@@ -51,6 +47,8 @@ export function MarqueRow({
     </div>
   );
 }
+
+export const MarqueRow = memo(marqueRow);
 
 interface MarqueTextProps {
   text: string;

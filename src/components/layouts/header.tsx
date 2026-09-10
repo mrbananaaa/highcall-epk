@@ -1,19 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import LogoHighcall from "../../../public/logo-highcall.png";
+import { useScrollTo } from "@/hooks/use-scroll-to";
 
 const NAV_LIST = [
   ["PROFILE", "profile"],
-  ["EXPERIENCE", "experience"],
   ["CONTACT", "contact"],
+  ["GALLERY", "gallery"],
 ] as const;
 
 export default function Header() {
+  const { scrollTo } = useScrollTo();
+
   return (
-    <header className="fixed top-0 left-0 z-50 w-full backdrop-blur-lg select-none">
-      <div className="mx-auto flex h-16 items-center justify-between px-4 md:px-6 lg:px-8">
-        <Link href="#">
+    <header className="nav fixed top-0 left-0 z-50 w-full backdrop-blur-lg select-none">
+      <div className="mx-auto flex h-20 items-center justify-between px-4 md:px-6 lg:px-8">
+        <Link onClick={() => scrollTo("#")} scroll={false} href="#">
           <div className="w-28">
             <Image
               alt="higcall-logo"
@@ -33,8 +38,9 @@ export default function Header() {
             return (
               <React.Fragment key={title}>
                 <Link
-                  href={`#${to}`}
+                  onClick={() => scrollTo(`#${to}`)}
                   scroll={false}
+                  href={`#${to}`}
                   className="cursor-pointer tracking-tight text-primary transition-all hover:text-white"
                 >
                   {title}

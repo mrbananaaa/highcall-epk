@@ -83,27 +83,6 @@
   --background-size-grid-lg: 60px 60px;
 }
 
-body {
-  scroll-behavior: smooth !important;
-}
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
-}
-
 /* Hero text logo base */
 .hero-logo-text {
   @apply font-display text-[80px] sm:text-[85px] md:text-[180px] leading-0 font-bold tracking-tighter 2xl:text-[290px];
@@ -119,4 +98,14 @@ html.lenis body {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--color-primary);
+}
+
+.reveal-to-top {
+  @apply opacity-0 translate-y-24;
+}
+
+.nav {
+  position: fixed;
+  z-index: 100;
+  will-change: transform;
 }

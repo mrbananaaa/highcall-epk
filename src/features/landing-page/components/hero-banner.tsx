@@ -1,69 +1,87 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import gsap from "gsap";
+import { LINK_URLS, CONTACT_LIST } from "@/config/constants";
 import Link from "next/link";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { STriggerVars } from "@/lib/gsap";
+import { useScrollTo } from "@/hooks/use-scroll-to";
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
-      duration: 1.5,
-      ease: "easeIn",
-    },
-  },
-};
-
-const childVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 2,
-      type: "spring",
-      damping: 20,
-      stiffness: 150,
-    },
-  },
-};
+interface AnimatedElement extends HTMLElement {
+  animation?: gsap.core.Tween;
+}
 
 export default function HeroBanner() {
+  const containerRef = useRef(null);
+  const { scrollTo } = useScrollTo();
+
+  useGSAP(
+    () => {
+      gsap.from(".reveal-element", {
+        scrollTrigger: STriggerVars.base(containerRef.current),
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.4,
+        stagger: {
+          each: 0.2,
+        },
+        ease: "expoScale(0.5,7,none)",
+      });
+
+      const scaleTextElements =
+        gsap.utils.toArray<AnimatedElement>(".scale-text");
+
+      scaleTextElements.forEach((el) => {
+        el.animation = gsap.to(el, {
+          scale: 1.1,
+          duration: 0.3,
+          ease: "power2.out",
+          paused: true,
+        });
+      });
+    },
+    { scope: containerRef },
+  );
+
+  const handleMouseEnter = (e: React.MouseEvent<AnimatedElement>) =>
+    e.currentTarget.animation?.play();
+  const handleMouseLeave = (e: React.MouseEvent<AnimatedElement>) =>
+    e.currentTarget.animation?.reverse();
+
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: false,
-        amount: 0.3,
-      }}
-      className="flex flex-col items-center md:pt-22"
-    >
-      <motion.div variants={childVariants} className="z-10 cursor-pointer">
-        {/* glow background */}
-        <span className="hero-logo-text absolute border bg-primary text-primary/40 blur-3xl select-none">
-          HIGHCALL
-        </span>
+    <div ref={containerRef} className="flex flex-col items-center md:pt-22">
+      <Link target="_blank" href={`${LINK_URLS.IG}/${CONTACT_LIST.igUsername}`}>
+        <div
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="scale-text z-10 cursor-pointer"
+        >
+          <h1 className="reveal-element hero-logo-text relative text-primary selection:bg-primary selection:text-primary-container">
+            HIGHCALL
+          </h1>
 
-        <h1 className="hero-logo-text relative text-primary selection:bg-primary selection:text-primary-container">
-          HIGHCALL
-        </h1>
-      </motion.div>
+          {/* glow background */}
+          <span className="reveal-element hero-logo-text absolute bg-primary text-primary/40 blur-3xl select-none">
+            HIGHCALL
+          </span>
+        </div>
+      </Link>
 
-      <motion.h2
-        variants={childVariants}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="z-20 mt-10 font-semibold tracking-wide text-on-surface/60 transition-colors hover:text-white md:mt-20 md:text-lg 2xl:mt-30"
+      <h2
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="reveal-element scale-text z-20 mt-10 font-semibold tracking-wide text-on-surface/60 transition-colors hover:text-white md:mt-20 md:text-lg 2xl:mt-30"
       >
-        <Link href="#contact">BLITAR, ID — OPEN FOR BOOKING</Link>
-      </motion.h2>
-    </motion.div>
+        <Link
+          href="#contact"
+          onClick={() => scrollTo("#contact")}
+          scroll={false}
+        >
+          BLITAR, ID — OPEN FOR BOOKING
+        </Link>
+      </h2>
+    </div>
   );
 }

@@ -15,7 +15,7 @@ export function Container({
     <div
       className={cn(
         "mx-auto w-full",
-        !clean && "px-4 sm:px-6 lg:px-8",
+        !clean && "max-w-6xl px-4 sm:px-6 lg:px-8 2xl:max-w-7xl",
         className,
       )}
       {...props}
