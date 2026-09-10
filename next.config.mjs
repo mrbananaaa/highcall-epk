@@ -8,7 +8,7 @@ const nextConfig = {
   allowedDevOrigins: ["dev.banana.com"],
   images: {
     dangerouslyAllowSVG: true,
-    qualities: [25, 50, 75],
+    qualities: [25, 50, 75, 100],
   },
 };
 

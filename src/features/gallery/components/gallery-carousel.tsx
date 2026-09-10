@@ -38,7 +38,7 @@ const GalleryCarousel = ({ images }: GalleryCarouselProps) => {
           // self.deltaY tells us how fast/hard the user spun the wheel
           // We translate that directly into moving the timeline progress!
           // positive deltaY = wheel down, negative deltaY = wheel up
-          let speedFactor = 0.003;
+          let speedFactor = 0.0025;
           let newProgress = loop.progress() + self.deltaY * speedFactor;
 
           gsap.to(loop, {
