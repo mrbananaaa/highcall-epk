@@ -8,6 +8,7 @@ import {
   ScrollToPlugin,
   SplitText,
 } from "gsap/all";
+import { Analytics } from "@vercel/analytics/next";
 import BaseLayout from "@/components/layouts/base-layout";
 
 gsap.registerPlugin(
@@ -26,6 +27,8 @@ export default function AppProvider({ children }: AppProviderProps) {
   return (
     <>
       <BaseLayout>{children}</BaseLayout>
+
+      <Analytics />
     </>
   );
 }
