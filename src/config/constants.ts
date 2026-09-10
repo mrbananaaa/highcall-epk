@@ -17,6 +17,8 @@ export const IMGS = {
     "at-kopi-mantu-5.jpeg",
   ],
   dopamine: [],
+  libre: [],
+  burningBar: [],
 } as const;
 
 export const getImages = (place: keyof typeof IMGS, idx: number) => {
